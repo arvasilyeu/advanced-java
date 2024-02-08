@@ -6,3 +6,4 @@
 # Complited class files
 *.class
 /.metadata/
+/target/
