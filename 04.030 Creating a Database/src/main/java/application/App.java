@@ -8,18 +8,20 @@ public class App {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		
 //		Class.forName("org.sqlite.JDBC");
+//		String dbUrl = "jdbc:sqlite:people.db";
+//		var conn = DriverManager.getConnection(dbUrl);
 		
-		String dbUrl = "jdbc:sqlite:people.db";
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+		String dbUrl = "jdbc:mysql://localhost:3306/people";
+		var conn = DriverManager.getConnection(dbUrl, "root", "1234567890");
 		
-		var conn = DriverManager.getConnection(dbUrl);
 		conn.setAutoCommit(false);
 		
 		var stmt = conn.createStatement();
 		
-		var createTable = "create table if not exists user (id integer primary key, name not null)";
+//		var createTable = "create table if not exists user (id integer primary key, name not null)";
 //		var createTable = "create table user (id integer primary key, name not null)";
-		
-		stmt.execute(createTable);
+//		stmt.execute(createTable);
 		
 //======================================================================================================		
 //		var insert = """
@@ -29,7 +31,7 @@ public class App {
 //					(1, 'Mary');
 //				""";
 //		stmt.execute(insert);
-//======================================================================================================		
+//======================================================================================================
 		int[] ids = {0, 1, 2};
 		String[] names = {"Sue", "Bob", "Charley"};
 		
@@ -51,7 +53,7 @@ public class App {
 			System.out.println(id + ": " + name);
 		}
 		
-		stmt.execute("drop table user");
+//		stmt.execute("drop table user");
 		
 		stmt.close();
 		conn.close();
