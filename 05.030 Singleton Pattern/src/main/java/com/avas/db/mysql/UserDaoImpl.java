@@ -49,7 +49,7 @@ public class UserDaoImpl implements UserDao {
 		var conn = Database.getInstance().getConnection();
 		try {
 			var stmt = conn.createStatement();
-			var rs = stmt.executeQuery("select * from user");
+			var rs = stmt.executeQuery("select * from user order by id");
 			
 			
 			while(rs.next()) {
